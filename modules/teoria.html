@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podstawy Kotlina</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background-color: #f2f2f2;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header{
+            background-color: #6A1B9A;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1{
+            font-size: 42px;
+        }
+
+        .container{
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .section{
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .section h2{
+            margin-bottom: 15px;
+            color: #6A1B9A;
+        }
+
+        code{
+            display: block;
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        ul{
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        footer{
+            text-align: center;
+            padding: 20px;
+            background-color: #ddd;
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Podstawy języka Kotlin</h1>
+        <p>Naucz się podstaw programowania w Kotlinie</p>
+    </header>
+
+    <div class="container">
+
+        <div class="section">
+            <h2>1. Czym jest Kotlin?</h2>
+
+            <p>
+                Kotlin to nowoczesny język programowania stworzony przez firmę JetBrains.
+                Jest oficjalnym językiem do tworzenia aplikacji Android.
+            </p>
+
+            <ul>
+                <li>prosty składniowo,</li>
+                <li>bezpieczny,</li>
+                <li>szybki,</li>
+                <li>współpracuje z Javą.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>2. Funkcja main()</h2>
+
+            <p>
+                Każdy program w Kotlinie rozpoczyna działanie od funkcji <b>main()</b>.
+            </p>
+
+            <code>
+fun main() {
+    println("Hello Kotlin!")
+}
+            </code>
+        </div>
+
+        <div class="section">
+            <h2>3. Zmienne</h2>
+
+            <p>
+                W Kotlinie używamy:
+            </p>
+
+            <ul>
+                <li><b>val</b> — stała (nie można zmienić wartości)</li>
+                <li><b>var</b> — zmienna (wartość można zmieniać)</li>
+            </ul>
+
+            <code>
+val name = "Kotlin"
+var age = 20
+
+age = 21
+            </code>
+        </div>
+
+        <div class="section">
+            <h2>4. Typy danych</h2>
+
+            <p>Najpopularniejsze typy danych:</p>
+
+            <ul>
+                <li>Int — liczby całkowite</li>
+                <li>Double — liczby dziesiętne</li>
+                <li>String — tekst</li>
+                <li>Boolean — true / false</li>
+            </ul>
+
+            <code>
+val number: Int = 10
+val price: Double = 19.99
+val text: String = "Hej"
+val isOnline: Boolean = true
+            </code>
+        </div>
+
+        <div class="section">
+            <h2>5. Instrukcja if</h2>
+
+            <p>
+                Instrukcja warunkowa pozwala wykonywać kod zależnie od warunku.
+            </p>
+
+            <code>
+val age = 18
+
+if(age >= 18){
+    println("Pełnoletni")
+}else{
+    println("Niepełnoletni")
+}
+            </code>
+        </div>
+
+        <div class="section">
+            <h2>6. Pętle</h2>
+
+            <p>Pętle służą do powtarzania kodu.</p>
+
+            <code>
+for(i in 1..5){
+    println(i)
+}
+            </code>
+        </div>
+
+        <div class="section">
+            <h2>7. Funkcje</h2>
+
+            <p>
+                Funkcje pozwalają organizować kod.
+            </p>
+
+            <code>
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+            </code>
+        </div>
+
+        <div class="section">
+            <h2>8. Klasy i obiekty</h2>
+
+            <p>
+                Kotlin wspiera programowanie obiektowe.
+            </p>
+
+            <code>
+class User(val name: String)
+
+fun main(){
+    val user = User("Adam")
+    println(user.name)
+}
+            </code>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2025 Kotlin Learning App
+    </footer>
+
+</body>
+</html>
