@@ -76,6 +76,13 @@
 </head>
 <body>
 
+    <script defer>
+        if(!window.localStorage.getItem("punkty")) {
+            window.localStorage.setItem("punkty", 0);
+            console.log("Poprawnie stworzono zmienna w local storage.");
+        }
+    </script>
+
     <header>
         <h1>Podstawy języka Kotlin</h1>
         <p>Naucz się podstaw programowania w Kotlinie</p>
