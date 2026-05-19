@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloczki Drag & Drop - Kotlin Learning</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .drag-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .blocks-pool {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            min-height: 50px;
+            padding: 10px;
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+        }
+        .drop-zone {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            min-height: 60px;
+            padding: 10px;
+            background: #f8fafc;
+            border: 2px solid #6366f1;
+            border-radius: 8px;
+            align-items: center;
+        }
+        .code-block {
+            padding: 8px 12px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 4px;
+            cursor: grab;
+            font-family: monospace;
+            user-select: none;
+        }
+        .code-block:active {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">⬅ Powrót do menu głównego</a>
+        
+        <h2>Moduł 3: Układanie kodu z bloczków</h2>
+        <p>Przeciągnij elementy z dolnej puli i ułóż je w ramce tak, aby powstała poprawna funkcja zwracająca sumę dwóch liczb: <br><code>fun sum(a: Int, b: Int): Int { return a + b }</code></p>
+        
+        <div class="drag-section">
+            <h3>Twoje rozwiązanie:</h3>
+            <div id="drop-zone" class="drop-zone"></div>
+
+            <h3>Dostępne bloczki (Kolejność losowa):</h3>
+            <div id="blocks-pool" class="blocks-pool"></div>
+        </div>
+        
+        <button class="menu-button" id="check-blocks">Sprawdź kod</button>
+        <div id="blocks-result" class="result-box hidden"></div>
+    </div>
+
+    <script src="./bloczki.js"></script>
+</body>
+</html>
