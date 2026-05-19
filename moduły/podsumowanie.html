@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podsumowanie</title>
+</head>
+
+<style>
+    body{
+        margin: 0 auto;
+        background-color: lightblue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+    }
+
+    div{
+        margin-top: 100px;
+       width: 400px;
+       height: 80px;
+       font-size: 30px;
+    }
+</style>
+<body>
+<div>
+        
+    </div>
+    <script defer>
+        let punkty = window.localStorage.getItem("punkty");
+        if(!window.localStorage.getItem("punkty")) document.querySelector("div").innerHTML = "Nie uzyskano żadnych punktów";
+        else document.querySelector("div").innerHTML = "Uzyskano " + punkty + "punkty/ów.";
+    </script>
+
+    
+    
+</body>
+</html>
