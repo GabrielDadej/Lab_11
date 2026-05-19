@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiszki - Kotlin Learning</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .flashcards-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        /* Kontener efektu 3D */
+        .flashcard {
+            background-color: transparent;
+            width: 220px;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        /* Wewnętrzny kontener trzymający przód i tył */
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        /* Klasa dodawana przez JS na kliknięcie powodująca obrót */
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+        /* Wspólne style dla przodu i tyłu */
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: 2px solid #6366f1;
+        }
+        /* Przód karty */
+        .card-front {
+            background-color: #ffffff;
+            color: #1e1b4b;
+        }
+        /* Tył karty (obrócony na starcie) */
+        .card-back {
+            background-color: #6366f1;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .card-keyword {
+            font-size: 1.2rem;
+            font-weight: bold;
+            font-family: monospace;
+        }
+        .action-area {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">⬅ Powrót do menu głównego</a>
+        
+        <h2>Moduł 5: Interaktywne Fiszki</h2>
+        <p>Kliknij na fiszkę, aby zobaczyć definicję pojęcia związanego z funkcjami w Kotlinie.</p>
+        
+        <div class="flashcards-grid">
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-keyword">Top-level functions</span>
+                        <p style="font-size: 0.8rem; color: #64748b; margin-top: 15px;">Kliknij, aby obrócić</p>
+                    </div>
+                    <div class="card-back">
+                        <p>Funkcje deklarowane bezpośrednio w pliku, poza jakimikolwiek klasami. W Kotlinie nie musisz tworzyć klasy, aby napisać funkcję!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-keyword">Named Arguments</span>
+                        <p style="font-size: 0.8rem; color: #64748b; margin-top: 15px;">Kliknij, aby obrócić</p>
+                    </div>
+                    <div class="card-back">
+                        <p>Możliwość przekazywania argumentów do funkcji poprzez jawne podanie nazwy parametru, np. <code>format(border = true)</code>. Zwiększa to czytelność kodu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="card-front">
+                        <span class="card-keyword">Extension Functions</span>
+                        <p style="font-size: 0.8rem; color: #64748b; margin-top: 15px;">Kliknij, aby obrócić</p>
+                    </div>
+                    <div class="card-back">
+                        <p>Funkcje rozszerzające istniejące klasy o nowe metody bez konieczności dziedziczenia po nich (np. dodanie metody do klasy <code>String</code>).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-area">
+            <button class="menu-button" id="finish-flashcards">Oznacz moduł jako ukończony</button>
+            <div id="flashcards-result" class="result-box hidden"></div>
+        </div>
+    </div>
+
+    <script src="./fiszki.js"></script>
+</body>
+</html>
