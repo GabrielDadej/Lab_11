@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Kotlin Test</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+    padding:40px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+h1{
+    text-align:center;
+    color:#6A1B9A;
+}
+
+.question{
+    margin-bottom:20px;
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+input{
+    padding:5px;
+    width:200px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    margin-top:20px;
+    background:#6A1B9A;
+    color:white;
+    border:none;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#result{
+    text-align:center;
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+    <script defer>
+        if(!window.localStorage.getItem("punkty")) {
+            window.localStorage.setItem("punkty", 0);
+            console.log("Poprawnie stworzono zmienna w local storage.");
+        }
+    </script>
+
+<div class="container">
+
+<h1>Test Kotlin - Uzupełnij kod (5 pkt)</h1>
+
+<form id="quiz">
+
+<div class="question">
+<p>1. Funkcja startowa programu:</p>
+<code>fun ____() { }</code><br><br>
+<input type="text" name="q1">
+</div>
+
+<div class="question">
+<p>2. Stała w Kotlinie:</p>
+<code>____ name = "Kotlin"</code><br><br>
+<input type="text" name="q2">
+</div>
+
+<div class="question">
+<p>3. Wypisywanie tekstu:</p>
+<code>____("Hello")</code><br><br>
+<input type="text" name="q3">
+</div>
+
+<div class="question">
+<p>4. Zmienna liczbowo:</p>
+<code>var age: ____ = 20</code><br><br>
+<input type="text" name="q4">
+</div>
+
+<div class="question">
+<p>5. Tworzenie klasy:</p>
+<code>____ User(val name: String)</code><br><br>
+<input type="text" name="q5">
+</div>
+
+<button type="button" onclick="check()">Sprawdź wynik</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function check(){
+
+    let score = 0;
+
+    const answers = {
+        q1: "main",
+        q2: "val",
+        q3: "println",
+        q4: "Int",
+        q5: "class"
+    };
+
+    const form = document.forms["quiz"];
+
+    for(let key in answers){
+
+        let userAnswer = form[key].value.trim();
+
+        if(userAnswer === answers[key]){
+            score++;
+        }
+    }
+
+    document.getElementById("result").innerText =
+        "Wynik: " + score + " / 5";
+
+     window.localStorage.setItem("punkty", parseInt(window.localStorage.getItem("punkty")) + score);
+}
+
+</script>
+
+</body>
+</html>
